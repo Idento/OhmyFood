@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Shrikhand&display=swap');
+
 $back-color: #F7F7F7;
 $main-color:#9356DC;
 $secondary-color: #FF79DA ;
 $third-color: #99E2D0;
+$title-weight: 700;
+$description-weight: 300;
+$desktop-media:1024px;
+$tablet-media:765px;
 
+*{
+    font-family: 'Roboto', sans-serif;
+}
 body {
     width: 100%;
     min-width: 100%;
@@ -44,38 +53,67 @@ header{
 
 .intro__text{
     text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .main-title{
     font-size: 24px;
     margin-top: 40px;
     margin-bottom: 0px;
+    @media (min-width:$tablet-media) {
+        font-size: 40px;
+    }
 }
 
 .description{
     color:#353535;
+
 }
 @mixin btn{
     width: 218px;
     height: 50px;
     border-radius: 25px;
     border: none;
-    background: linear-gradient(#FF79DA, #9356DC);
+    background: linear-gradient($secondary-color, $main-color);
     color: white;
     font-size: 16px;
 }
 .intro__btn{
     margin: auto;
     @include btn;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    margin-top: 15px;
 }
 
 .guiduser{
     background-color: white;
+    padding-top: 40px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 60px;
     h2{
         font-size: 24px;
+    }
+    &__globalbox{
+        @media (min-width:$desktop-media){
+            width: 1000px;
+        }
+        @media (min-width:$tablet-media) and ((max-width:$desktop-media)){
+            width: 500px;
+        }
+    }
+    @media (min-width:$desktop-media){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    @media (min-width:$tablet-media) and ((max-width:$desktop-media)){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     &__step{
         height: 75px;
@@ -89,6 +127,9 @@ header{
         background-color: $back-color;
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
         position: relative;
+        @media (min-width:$desktop-media){
+            width: 300px;
+        }
         .number{
             display: flex;
             align-items: center;
@@ -111,22 +152,64 @@ header{
         }
         h3{
             font-size: 16px;
+            font-weight: 500;
+        }
+    }
+    &__box{
+        @media (min-width:$desktop-media){
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 25px;
         }
     }
 }
+@mixin flex-center-column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
 .restaurants{
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    @media (min-width:$desktop-media){
+        @include flex-center-column;
+        
+    }
+    @media (min-width:$tablet-media) and ((max-width:$desktop-media)){
+        @include flex-center-column;
+    }
+    &__globalbox{
+        @media (min-width:$desktop-media){
+            width: 1000px;
+        }
+        @media (min-width:$tablet-media) and ((max-width:$desktop-media)){
+            width: 500px;
+        }
+        
+    }
+    
+
 }
 .restaurant__card{
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 18px;
+    margin-bottom: 60px;
+    @media (min-width:$desktop-media){
+        display: grid;
+        grid-template-columns: 450px 450px;
+        column-gap: 100px;
+        row-gap: 50px;
+        justify-content: center;
+    }
 }
 .card{
     border-radius: 15px;
-    background-color: #99E2D0;
+    background-color: white;
     position: relative;
     height: 270px;
     img {
@@ -152,7 +235,9 @@ header{
     &__content{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
+        margin-top: 10px;
         margin-left: 10px;
         margin-right: 20px;
         h3{
@@ -163,8 +248,60 @@ header{
             padding: 0;
             margin: 0;
         }
+        .liked-icon{
+            display: none;
+        }
         
     }
 }
-
-
+footer{
+    $marg-foot-content: 8px;
+    background-color: #353535;
+    .foot__content{
+        color: white;
+        margin: 20px;
+        &--icon {
+            margin-top: $marg-foot-content;
+        }
+        &--icon p{
+            display: inline;
+            margin-left: 10px;
+        }
+        &--icon i{
+            width: 12px ;
+        }
+        @media (min-width:$desktop-media){
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            align-items: end;
+            padding-top: 30px;
+            margin: 30px;
+            padding-right: 30px;
+            &--box{
+                display: flex;
+                gap: 10px;
+                width: 600px;
+                margin-right: 30px;
+            }
+            h3 {
+                margin: 0;
+            }
+            &--icon{
+                width: 190px;
+            }
+        }
+        
+    }
+    h3{
+        font-family: 'Shrikhand';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    p{
+        margin: 0px;
+        margin-top: $marg-foot-content;
+    }
+}
