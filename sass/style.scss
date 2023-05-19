@@ -40,6 +40,24 @@ $tablet-media:765px;
     -moz-background-clip: text
 }
 
+@keyframes Welcome_card {
+    0% {
+      transform: translateX(-300px);
+      opacity: 0;
+    }
+    90%{
+        opacity: 0.5;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+@mixin welcome($number){
+    animation: Welcome_card 0.5s ease-out $number forwards;
+}
+
 *{
     font-family: 'Roboto', sans-serif;
 }
@@ -126,9 +144,6 @@ header{
     margin-bottom: 60px;
     margin-top: 15px;
 }
-.grey{
-    color: #7E7E7E;
-}
 
 .guiduser{
     background-color: white;
@@ -175,6 +190,16 @@ header{
         @media (min-width:$desktop-media){
             width: 30%;
         }
+        &:hover{
+            .fa-solid{
+                color: $main-color;
+            }
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+        }
+        .fa-solid{
+            color: #7E7E7E;
+        }
+
         .number{
             display: flex;
             align-items: center;
@@ -187,9 +212,6 @@ header{
             left: -10px;
             position: absolute;
             font-size: 14px;
-        }
-        .fa-store{
-            color: $main-color;
         }
         i{
             margin-left: 5%;
@@ -475,11 +497,15 @@ footer{
 
     }
 }
+
+
+
 .detail_menu{
     display: flex;
     flex-direction: column;
     gap: 12px;
     width: 96%;
+    animation: Welcome_card 0.5s ease-in;
     @media (min-width:$tablet-media){
         width: 55%;
     }
@@ -493,8 +519,7 @@ footer{
             display: block;
             margin-top: 1%;
             width: 10%;
-            border-bottom: 2px;
-            border: solid $third-color;
+            border: 3px solid $third-color;
         }
     }
 }
@@ -507,6 +532,19 @@ footer{
     box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     overflow: hidden;
+    opacity: 0;
+    &:nth-child(2){
+        @include welcome(0.6s);
+    }
+    &:nth-child(3){
+        @include welcome(0.7s);
+    }
+    &:nth-child(4){
+        @include welcome(0.8s);
+    }
+    &:nth-child(5){
+        @include welcome(0.9s);
+    }
     .plat__card{
         display: flex;
         flex-direction: row;
@@ -551,7 +589,8 @@ footer{
     .price{
         align-self: flex-end;
         display: flex;
-        height: 40%;
+        justify-content: center;
+        height: 60%;
         margin-right: 2%;
         flex: 0;
         p{

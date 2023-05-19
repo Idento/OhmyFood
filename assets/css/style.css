@@ -1,4 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Shrikhand&display=swap");
+@keyframes Welcome_card {
+  0% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 * {
   font-family: "Roboto", sans-serif;
 }
@@ -99,10 +112,6 @@ header .header__localisation {
   background: linear-gradient(#9356DC, #FF79DA);
 }
 
-.grey {
-  color: #7E7E7E;
-}
-
 .guiduser {
   background-color: white;
   padding-top: 40px;
@@ -157,6 +166,15 @@ header .header__localisation {
     width: 30%;
   }
 }
+.guiduser__step:hover {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+}
+.guiduser__step:hover .fa-solid {
+  color: #9356DC;
+}
+.guiduser__step .fa-solid {
+  color: #7E7E7E;
+}
 .guiduser__step .number {
   display: flex;
   align-items: center;
@@ -169,9 +187,6 @@ header .header__localisation {
   left: -10px;
   position: absolute;
   font-size: 14px;
-}
-.guiduser__step .fa-store {
-  color: #9356DC;
 }
 .guiduser__step i {
   margin-left: 5%;
@@ -490,6 +505,7 @@ footer p {
   flex-direction: column;
   gap: 12px;
   width: 96%;
+  animation: Welcome_card 0.5s ease-in;
 }
 @media (min-width: 765px) {
   .detail_menu {
@@ -507,8 +523,7 @@ footer p {
   display: block;
   margin-top: 1%;
   width: 10%;
-  border-bottom: 2px;
-  border: solid #99E2D0;
+  border: 3px solid #99E2D0;
 }
 
 .menu__cards {
@@ -520,6 +535,19 @@ footer p {
   box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   overflow: hidden;
+  opacity: 0;
+}
+.menu__cards:nth-child(2) {
+  animation: Welcome_card 0.5s ease-out 0.6s forwards;
+}
+.menu__cards:nth-child(3) {
+  animation: Welcome_card 0.5s ease-out 0.7s forwards;
+}
+.menu__cards:nth-child(4) {
+  animation: Welcome_card 0.5s ease-out 0.8s forwards;
+}
+.menu__cards:nth-child(5) {
+  animation: Welcome_card 0.5s ease-out 0.9s forwards;
 }
 .menu__cards .plat__card {
   display: flex;
@@ -568,7 +596,8 @@ footer p {
 .menu__cards .price {
   align-self: flex-end;
   display: flex;
-  height: 40%;
+  justify-content: center;
+  height: 60%;
   margin-right: 2%;
   flex: 0;
 }
