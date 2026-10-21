@@ -2,7 +2,7 @@
 
 Integration of a mobile-first mockup for a restaurant booking site: a home page and four restaurant menu pages, in HTML and Sass, with CSS-only animations.
 
-**Live site:** https://idento.github.io/Ohmyfood/
+**Live site:** https://idento.github.io/OhmyFood/
 
 | Desktop | Mobile |
 | --- | --- |
