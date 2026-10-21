@@ -16,6 +16,15 @@ Integration of a mobile-first mockup for a restaurant booking site: a home page 
 - Styles written in Sass (variables, mixins with parameters, nesting), compiled to `assets/css/style.css`.
 - 2026: the four restaurant photos (8.5 MB in total, up to 5,000 px wide) were resized to 1,600 px, about 1 MB in total, with no visible change.
 
+## Lighthouse
+
+Measured on the live site on October 21, 2026 (Lighthouse 13.5, median of 3 runs):
+
+| | Performance | Accessibility | Best practices | SEO |
+| --- | --- | --- | --- | --- |
+| Mobile | 75 | 88 | 92 | 91 |
+| Desktop | 98 | 88 | 92 | 91 |
+
 ## Stack
 
 HTML, Sass/CSS. No framework and no JavaScript of my own (the only script is the Font Awesome icon kit). Deployed on GitHub Pages with GitHub Actions.
